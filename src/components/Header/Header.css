@@ -1,0 +1,21 @@
+#title, #logout {
+  text-transform: uppercase;
+  font-size: 5vh;
+  font-weight: bold;
+  cursor: pointer;
+  display:block;
+}
+
+.header {
+  display: flex;
+  padding-left:30px;
+  padding-right:30px;
+  flex-direction: row;
+  justify-content:space-between;
+}
+
+.divider {
+  margin-top:7px;
+  width: 100%;
+  background-color: grey;
+}
