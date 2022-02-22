@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyparser = require('body-parser');
-const mysql = require('mysql2');
+// const mysql = require('mysql2');
 const cors = require('cors');
 const port=8000;
 
@@ -9,12 +9,29 @@ app.use(cors({ origin: "*" }));
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: true}));
 
-const connection=mysql.createConnection({
-    host:'sql6.freesqldatabase.com',
-    user:'sql6474167',
-    password:'hby1UWFzJt',
-    database:'sql6474167',
-    port:3306
+// const connection=mysql.createConnection({
+//     host:'sql6.freesqldatabase.com',
+//     user:'sql6474167',
+//     password:'hby1UWFzJt',
+//     database:'sql6474167',
+//     port:3306
+// });
+
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+  host: 'SG-mysql1-5763-mysql-master.servers.mongodirector.com',
+  user: 'sgroot',
+  password: '7&VhKXTLCZK4RNI5',
+  database:'node_project',
+  port: 3306,  
+});
+connection.connect(function(err) {
+    if (err) {throw err;}
+    console.log('Connected');
+    // connection.query("SELECT * FROM users", function (err, result, fields) {
+    //     if (err) throw err;
+    //     console.log(result);
+    // });
 });
 
 try
@@ -51,9 +68,8 @@ app.post('/saveUser',(req,res)=>{
         }
     });
 })
-
+           
 app.get('/getUser',(req,res)=>{
-    console.log(req.query.username,req.query.password);
     var q = "SELECT password from users WHERE username="+"'"+req.query.username+"'"+" AND password="+"'"+req.query.password+"'";
     connection.query(q, function (error, result) {
         if (result.length===0)
@@ -76,6 +92,5 @@ app.get('/getUser',(req,res)=>{
     });
       
 })
-
 
 app.listen(port,()=>console.log(`server is listening in port ${port}`));

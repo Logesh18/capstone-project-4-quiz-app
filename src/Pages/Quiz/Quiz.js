@@ -1,12 +1,13 @@
 import { CircularProgress } from "@material-ui/core";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 import Question from "../../components/Question/Question";
 import "./Quiz.css";
 
-const Quiz = ({ name, questions, score, setScore, setQuestions }) => {
+const Quiz = ({ questions, score, setScore, setQuestions }) => {
   const [options, setOptions] = useState();
   const [currQues, setCurrQues] = useState(0);
-
+  const {token}=useParams();
   useEffect(() => {
     setOptions(
       questions &&
@@ -23,7 +24,7 @@ const Quiz = ({ name, questions, score, setScore, setQuestions }) => {
 
   return (
     <div className="quiz">
-      <span className="subtitle">Welcome, {name}</span>
+      <span className="subtitle">Welcome, {localStorage.getItem(token)}</span>
 
       {questions ? (
         <>

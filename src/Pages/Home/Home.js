@@ -5,7 +5,7 @@ import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import Categories from "../../Data/Categories";
 import "./Home.css";
 
-const Home = ({ name, setName, fetchQuestions }) => {
+const Home = ({ fetchQuestions }) => {
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
   const [error, setError] = useState(false);
@@ -22,12 +22,12 @@ const Home = ({ name, setName, fetchQuestions }) => {
 
       if(token===undefined || token==="undefined" || token==="" || localStorage.getItem(token)===null){
         localStorage.clear();
-        navigate("/");
+        navigate("/capstone-project-4-quiz-app");
       }
       else{
-        setName(localStorage.getItem(token));
         navigate(`/quiz/${token}`);
       }
+      
     }
   };
 
@@ -35,7 +35,7 @@ const Home = ({ name, setName, fetchQuestions }) => {
     <div className="content">
 
       <div className="settings">
-      <span className="subtitle">Welcome, {name}</span>
+      <span className="subtitle">Welcome, {localStorage.getItem(token)}</span>
         <span className="settings_title" >Quiz Settings</span>
         <div className="settings__select">
           {error && <ErrorMessage>Please Fill all the feilds</ErrorMessage>}

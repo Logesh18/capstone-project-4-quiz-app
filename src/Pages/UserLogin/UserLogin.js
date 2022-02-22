@@ -16,7 +16,6 @@ const UserLogin=()=>{
     });
 
     const login=async ()=>{
-        console.log("api:"+username,password);
         var token="";
         if(username!=="" && password !==""){
             await axios({

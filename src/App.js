@@ -10,7 +10,6 @@ import Result from "./Pages/Result/Result";
 
 const App=()=>{
   const [questions, setQuestions] = useState();
-  const [name, setName] = useState();
   const [score, setScore] = useState(0);
 
   const fetchQuestions = async (category = "", difficulty = "") => {
@@ -28,25 +27,23 @@ const App=()=>{
       <div className="app">
           <Header />
           <Routes>
-              <Route path="/" exact
+              <Route path="/capstone-project-4-quiz-app" exact
                 element={<UserLogin
               />}/>
               <Route path="/home/:token"
                 element={<Home
-                  name={name}
-                  setName={setName}
                   fetchQuestions={fetchQuestions} 
               />}/>
               <Route path="/quiz/:token"
                 element={<Quiz
-                  name={name}
                   questions={questions}
                   score={score}
                   setScore={setScore}
                   setQuestions={setQuestions}
               />}/>
               <Route path="/result/:token"
-                element={<Result name={name} score={score} 
+                element={<Result 
+                  score={score} 
               />}/>
           </Routes>
       </div>

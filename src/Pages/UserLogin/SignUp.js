@@ -22,7 +22,6 @@ const SignUp=()=>{
                 })
             }).then((response)=>{
                 document.getElementById("response").innerHTML=response.data;
-                console.log(response.data);
             });
         }
         else{

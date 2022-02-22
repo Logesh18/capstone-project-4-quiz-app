@@ -3,25 +3,25 @@ import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import "./Result.css";
 
-const Result = ({ name, score }) => {
+const Result = ({ score }) => {
   const navigate = useNavigate();
   const { token } = useParams();
   useEffect(() => {
     if(token!==undefined || token!==""|| localStorage.getItem(token)!==null){
-      if (!name) {
+      if (!localStorage.getItem(token)) {
         navigate(`/home/${token}`);
       }
     }
     else{
       localStorage.clear();
-      navigate("/")
+      navigate("/capstone-project-4-quiz-app")
     }
-  }, [name, navigate,token]);
+  }, [ navigate,token]);
 
   const redirect=()=>{
     if(token===undefined || token==="" || localStorage.getItem(token)===null){
       localStorage.clear();
-      navigate("/");
+      navigate("/capstone-project-4-quiz-app");
     }
     else{
       navigate(`/home/${token}`);

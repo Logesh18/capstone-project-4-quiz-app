@@ -1,11 +1,10 @@
-import { useNavigate, useParams } from "react-router";
+import { useNavigate } from "react-router";
 import { useLocation } from 'react-router-dom';
 import { useState,useEffect } from 'react';
 import "./Header.css";
 
 const Header = () => {
-  
-  const {token}=useParams();
+
   const navigate=useNavigate();
   
   const [path,setPath] = useState(false);
@@ -23,9 +22,8 @@ const Header = () => {
 
   useEffect(() => {
     window.addEventListener('resize', setWidth);
-    console.log(location.pathname,screenWidth);
 
-    if(location.pathname!=='/'){
+    if(location.pathname!=='/capstone-project-4-quiz-app'){
       setPath(true);
       if(screenWidth<600){
           document.getElementById("title").style.fontSize="4vh";
@@ -46,8 +44,8 @@ const Header = () => {
 
 
   const logout=()=>{
-      localStorage.removeItem(token);
-      navigate("/");
+      localStorage.clear();
+      navigate("/capstone-project-4-quiz-app");
   }
 
   return (
