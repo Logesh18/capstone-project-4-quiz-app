@@ -18,7 +18,7 @@ const App=()=>{
         category && `&category=${category}`
       }${difficulty && `&difficulty=${difficulty}`}&type=multiple`
     );
-
+    console.log(data);
     setQuestions(data.results);
   };
 
@@ -30,18 +30,18 @@ const App=()=>{
               <Route path="/capstone-project-4-quiz-app" exact
                 element={<UserLogin
               />}/>
-              <Route path="/home/:token"
+              <Route path="/home/:token" exact
                 element={<Home
                   fetchQuestions={fetchQuestions} 
               />}/>
-              <Route path="/quiz/:token"
+              <Route path="/quiz/:token" exact
                 element={<Quiz
                   questions={questions}
                   score={score}
                   setScore={setScore}
                   setQuestions={setQuestions}
               />}/>
-              <Route path="/result/:token"
+              <Route path="/result/:token" exact
                 element={<Result 
                   score={score} 
               />}/>
