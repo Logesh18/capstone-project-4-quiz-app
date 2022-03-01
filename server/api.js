@@ -44,7 +44,7 @@ catch(error)
     console.log(error);
 }
 app.post('/saveUser',(req,res)=>{
-    var q = "INSERT INTO users (username, email, password) VALUES ("+"'"+ req.body.username+"'" +", "+"'"+req.body.email+"'"+", "+"'"+req.body.password+"'"+")";
+    q = "INSERT INTO users (username, email, password) VALUES ("+"'"+ req.body.username+"'" +", "+"'"+req.body.email+"'"+", "+"'"+req.body.password+"'"+")";
     connection.query(q, function (error, result) {
         if (error)
         {
@@ -58,7 +58,7 @@ app.post('/saveUser',(req,res)=>{
 })
            
 app.get('/getUser',(req,res)=>{
-    var q = "SELECT password from users WHERE username="+"'"+req.query.username+"'"+" AND password="+"'"+req.query.password+"'";
+    q = "SELECT password from users WHERE username="+"'"+req.query.username+"'"+" AND password="+"'"+req.query.password+"'";
     connection.query(q, function (error, result) {
         if (result.length===0)
         {
