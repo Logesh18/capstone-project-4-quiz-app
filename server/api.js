@@ -81,7 +81,7 @@ app.get('/getUser',(req,res)=>{
             if(req.query.password===JSON.parse(data)[0].password){
                 var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
                 for ( var i = 0; i < 8; i++ ) {
-                    token += characters.charAt(getRandomInt(min,characters.length));
+                    token += characters.charAt(getRandomInt(0,characters.length));
                 }
                 console.log(token);
                 res.json({"token":token});
