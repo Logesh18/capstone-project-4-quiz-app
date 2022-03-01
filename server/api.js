@@ -43,6 +43,16 @@ catch(error)
 {
     console.log(error);
 }
+
+
+function getRandomInt(min, max) {       
+    var byteArray = new Uint8Array(1);
+    window.crypto.getRandomValues(byteArray);
+    var randomNum = '0.' + byteArray[0].toString();
+    randomNum = Math.floor(randomNum * (max - min + 1)) + min;
+    return randomNum;
+}
+
 app.post('/saveUser',(req,res)=>{
     q = "INSERT INTO users (username, email, password) VALUES ("+"'"+ req.body.username+"'" +", "+"'"+req.body.email+"'"+", "+"'"+req.body.password+"'"+")";
     connection.query(q, function (error, result) {
@@ -71,7 +81,7 @@ app.get('/getUser',(req,res)=>{
             if(req.query.password===JSON.parse(data)[0].password){
                 var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
                 for ( var i = 0; i < 8; i++ ) {
-                    token += characters.charAt(Math.floor(Math.random() * characters.length));
+                    token += characters.charAt(getRandomInt(min,characters.length));
                 }
                 console.log(token);
                 res.json({"token":token});
