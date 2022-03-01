@@ -18,8 +18,8 @@ const Quiz = ({ questions, score, setScore, setQuestions }) => {
     );
   }, [currQues, questions]);
 
-  const handleShuffle = (options) => {
-    return options.sort(() => Math.random() - 0.5);
+  const handleShuffle = (option) => {
+    return option.sort(() => Math.random() - 0.5);
   };
 
   return (
