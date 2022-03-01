@@ -15,7 +15,6 @@ const Home = ({ fetchQuestions }) => {
   const handleSubmit = () => {
     if (!category || !difficulty) {
       setError(true);
-      return;
     } else {
       setError(false);
       fetchQuestions(category, difficulty);
