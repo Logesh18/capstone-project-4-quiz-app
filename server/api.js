@@ -3,7 +3,7 @@ const app = express();
 const bodyparser = require('body-parser');
 const cors = require('cors');
 const port=8000;
-
+var q=""
 app.use(cors({ origin: "*" }));
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: true}));
@@ -25,7 +25,7 @@ connection.connect(function(err) {
 try
 {
     console.log("Database connected");
-    var q = "SHOW TABLES LIKE 'users'";
+    q = "SHOW TABLES LIKE 'users'";
     connection.query(q, function (error, result) {
         if(result.length === 0)
         {
