@@ -29,8 +29,8 @@ try
     connection.query(q, function (error, result) {
         if(result.length === 0)
         {
-            var q = "CREATE TABLE users (username VARCHAR(50) NOT NULL, email VARCHAR(50) NOT NULL, password VARCHAR(50) NOT NULL, PRIMARY KEY (username,email,password))";
-            connection.query(q, function (error, result) {
+            var q1 = "CREATE TABLE users (username VARCHAR(50) NOT NULL, email VARCHAR(50) NOT NULL, password VARCHAR(50) NOT NULL, PRIMARY KEY (username,email,password))";
+            connection.query(q1, function (err, result1) {
                 console.log("Table is created successfully");
             });
         }
