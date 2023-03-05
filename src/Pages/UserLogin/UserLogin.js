@@ -20,7 +20,8 @@ const UserLogin=()=>{
         if(username!=="" && password !==""){
             await axios({
                 method: 'get',
-                url: `http://localhost:8000/getUser?username=${username}&&password=${password}`
+                // url: `http://localhost:8000/getUser?username=${username}&&password=${password}`
+                url: `https://react-quiz-app-server1.onrender.com/getUser?username=${username}&&password=${password}`
             }).then((response)=>{
                 token=response.data.token;
                 document.getElementById("username").value="";

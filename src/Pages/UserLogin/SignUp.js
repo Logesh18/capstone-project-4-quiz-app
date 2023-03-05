@@ -11,7 +11,8 @@ const SignUp=()=>{
         if(username!=="" && email!=="" && password!==""){
             await axios({
                 method: 'post',
-                url: 'http://localhost:8000/saveUser',
+                // url: 'http://localhost:8000/saveUser',
+                url: 'https://react-quiz-app-server1.onrender.com/saveUser',
                 headers: {
                     'Content-Type' : 'application/json'
                 }, 
