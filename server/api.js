@@ -11,11 +11,16 @@ app.use(bodyparser.urlencoded({extended: true}));
 
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-  host: 'SG-mysql1-5763-mysql-master.servers.mongodirector.com',
-  user: 'sgroot',
-  password: '',
-  database:'node_project',
-  port: 3306,  
+//   host: 'SG-mysql1-5763-mysql-master.servers.mongodirector.com',
+//   user: 'sgroot',
+//   password: '',
+//   database:'node_project',
+//   port: 3306,  
+    host: 'sql12.freemysqlhosting.net',
+    user: 'sql12603118',
+    password: 'ljJTXmfuBg',
+    database:'sql12603118',
+    port: 3306,  
 });
 connection.connect(function(err) {
     if (err) {throw err;}
